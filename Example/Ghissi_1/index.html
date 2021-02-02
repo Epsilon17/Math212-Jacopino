@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <nav>
+      <!-- Zoom controls -->
+      <div>
+        <span>Zoom</span>
+        <button class="btn zoom-trigger" data-type="in" title="Zoom In">Zoom In</button>
+        <button class="btn zoom-trigger" data-type="out" title="Zoom Out">Zoom Out</button>
+      </div>
+
+      <!-- Type controls -->
+      <div>
+        <span>Views</span>
+        <button class="btn view-trigger active" data-type="before" title="Before">Before</button>
+        <button class="btn view-trigger active" data-type="after" title="After">After</button>
+      </div>
+
+      <!-- Mode toggles -->
+      <div>
+        <span>Modes</span>
+        <button class="btn active mode-trigger mode-curtain" data-mode="curtain" title="Curtain Mode">Curtain</button>
+        <button class="btn mode-trigger mode-syncs" data-mode="sync" title="Sync Mode">Sync</button>
+      </div>
+    </nav>
+
+    <!-- Viewer Element -->
+    <div id="viewer"></div>
+    <!-- <div class="copyright">* All images courtesy of The Leiden Collection</div> -->
+
+    <!-- OpenSeadragon from CDN and Plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/openseadragon@2.4/build/openseadragon/openseadragon.min.js"></script>
+    <script src="../src/openseadragon-curtain-sync.min.js"></script>
+
+    <!-- Demo Specific Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="scripts.js"></script>
+
+    <!-- Initialize Viewer -->
+    <script type="text/javascript">
+
+      var viewer = new CurtainSyncViewer({
+        container: document.querySelector('#viewer'),
+        images: [
+          {
+            key: 'after',
+            tileSource: 'https://raw.githubusercontent.com/Epsilon17/Math212-Jacopino/master/Images/Example/Ghissi_Area1_New_Gold/info.json',
+            shown: true
+          },
+          {
+            key: 'before',
+            tileSource: 'https://raw.githubusercontent.com/Epsilon17/Math212-Jacopino/master/Images/Example/Ghissi_Area1_New_Gold/info.json',
+            shown: true
+          }
+        ]
+      });
+
+    </script>
+  </body>
+</html>
